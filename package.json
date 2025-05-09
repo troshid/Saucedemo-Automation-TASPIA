@@ -16,7 +16,7 @@
     "pom",
     "saucedemo"
   ],
-  "author": "Md. Abir Hossain Bony",
+  "author": "Taspia Roshid Manna",
   "license": "ISC",
   "devDependencies": {
     "@wdio/allure-reporter": "^9.9.0",

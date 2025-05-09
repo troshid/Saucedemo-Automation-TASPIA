@@ -5,6 +5,7 @@ var password='secret_sauce'
 describe("Locked Out User", ()=>{
 
     it("Try login with locked_out_user and verify the error message", async()=>{
+        await browser.url('/');
         await locked_out_user_Action.clickOnUserInputField(username);
         await locked_out_user_Action.clickOnPasswordInputField(password);
         await locked_out_user_Action.clickOnLoginButton();
