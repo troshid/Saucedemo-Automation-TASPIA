@@ -71,7 +71,7 @@ This project automates end-to-end testing for the [Saucedemo](https://www.sauced
 
 ## Clone the repository:
    ```sh
-   git clone https://github.com/AbirBony21/Saucedemo-Automation.git
+   git clone https://github.com/troshid/Saucedemo-Automation-TASPIA.git
    ```
 
 
