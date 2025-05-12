@@ -21,10 +21,14 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        'test/specs/performance_glitch_user.spec.js'
+         'test/specs/locked_out_user.spec.js',
+         'test/specs/standard_user.spec.js',
+         'test/specs/performance_glitch_user.spec.js'
+
     ],
     // Patterns to exclude.
     exclude: [
+        'test/specs/test.e2e.js'
         // 'path/to/excluded/files'
     ],
     //
@@ -50,7 +54,7 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome'
+        browserName: 'MicrosoftEdge'
     }],
 
     //
@@ -205,6 +209,10 @@ exports.config = {
      * @param {object} suite suite details
      */
     // beforeSuite: function (suite) {
+    beforeSuite: async function (suite) {
+        await browser.url(this.baseUrl);       
+        await browser.maximizeWindow();    
+    },
     // },
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.

@@ -1,9 +1,8 @@
 const performance_glitch_userAction=require('../pages/performance_glitch_user/performance_glitch_user_action');
-const utility=require("../utilities/utility");
 const checkout_information_action=require("../pages/checkout_information/checkout_information_action");
-var firstname='Reigen'
-var lastname='Ishigami' 
-var zip_or_postal_code='1216'
+var firstname='Taspia'
+var lastname='Roshid' 
+var zip_or_postal_code='1000'
 var username='performance_glitch_user';
 var password='secret_sauce';
 
@@ -14,27 +13,31 @@ let each_item_total_price;
 
 describe("Performance Glitch User", ()=>{
 
-    it("Try login with performance_glitch_user and verify the error message", async()=>{
-        await browser.url('/');
+    it("Try login with performance_glitch_user", async()=>{
+        await browser.url("/");
         await performance_glitch_userAction.clickOnUserInputField(username);
         await performance_glitch_userAction.clickOnPasswordInputField(password);
         await performance_glitch_userAction.clickOnLoginButton();
+    });
+
+    it("Click On hamburger Menu and Reset App Statet", async()=>{
         await performance_glitch_userAction.clickOnhamburgerButton();
         await performance_glitch_userAction.clickOnresetAppState();
         await performance_glitch_userAction.clickOnCrossButton();
-    });
+    })
 
-    it("Click On hamburger Menu and Reset App State", async()=>{
-        await browser.url('/');
+    it("Click on Filter by name (Z to A)", async()=>{
         await performance_glitch_userAction.clickOnFilter();
         await performance_glitch_userAction.clickOnOption();
+    });
+
+    it("Click On add to cart of the first product", async()=>{
         await performance_glitch_userAction.addToCart();
         select_product=await performance_glitch_userAction.productNames();
         await performance_glitch_userAction.clickOnShoppingCart();
     });
     
     it("Click On Checkout Button", async()=>{
-        await browser.url('/');
         await performance_glitch_userAction.clickOnCheckout();
     });
 
@@ -46,13 +49,11 @@ describe("Performance Glitch User", ()=>{
     });
 
     it("Verify Product Name", async()=>{    
-        await browser.url('/');
         cart_item=await performance_glitch_userAction.CartItem_productName();
         expect(select_product).toEqual(cart_item);
     });
 
     it("Verify Total Price", async()=>{
-        await browser.url('/');
        const totalItemPrice=await performance_glitch_userAction.finalPrice();
        each_item_total_price=await performance_glitch_userAction.totalPrice();
        console.log(totalItemPrice);
@@ -61,7 +62,6 @@ describe("Performance Glitch User", ()=>{
     });
 
     it("Verify Total Price with Tax", async()=>{
-        await browser.url('/');
         const Tax=await performance_glitch_userAction.Tax();
         console.log(Tax);
         const total_price_with_tax= Tax+each_item_total_price;
@@ -74,12 +74,10 @@ describe("Performance Glitch User", ()=>{
     });
 
     it("Finish Purchase Jouney", async()=>{
-        await browser.url('/');
        await performance_glitch_userAction.finishPurchaseJourney();
     });
 
     it("Verify Successful Order", async()=>{
-        await browser.url('/');
         const successMessage=await performance_glitch_userAction.success_massage();
         console.log(successMessage);
         //Thank you for your order!
@@ -87,7 +85,6 @@ describe("Performance Glitch User", ()=>{
     });
 
     it("Reset the app and Logout", async()=>{
-        await browser.url('/');
 
         await performance_glitch_userAction.clickOnhamburgerButton();
         await performance_glitch_userAction.clickOnresetAppState();

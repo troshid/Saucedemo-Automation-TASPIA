@@ -49,7 +49,7 @@ class Action{
        
         const addTocart= await performance_glitch_user_locators.addTocart;
         
-        for (let item = 0; item <3; item++) {
+        for (let item = 0; item <1; item++) {
             await addTocart[item].getText();
             
             await addTocart[item].click();
@@ -62,7 +62,7 @@ class Action{
     async productNames(){
         const productname=await performance_glitch_user_locators.productName;
         const selectedProductNames = [];
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 1; i++) {
             let productName = await productname[i].getText();
             selectedProductNames.push(productName);
 
@@ -85,7 +85,7 @@ class Action{
     async CartItem_productName(){
         const CartItem_productNames=await performance_glitch_user_locators.CartItem_productName;
         const Add_CartItem_productNames = [];
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 1; i++) {
             let productName = await CartItem_productNames[i].getText();
             Add_CartItem_productNames.push(productName);
 
@@ -97,7 +97,7 @@ class Action{
     async totalPrice(){
         const productPrices = await performance_glitch_user_locators.productPrices;
         let expectedTotalPrice = 0;
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 1; i++) {
         
         let priceText = await productPrices[i].getText();
         let total_price_inNumber=await utility.convertTextToNumber(priceText);

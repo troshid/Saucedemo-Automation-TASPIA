@@ -1,9 +1,8 @@
 const standard_userAction=require('../pages/standard_user/standard_user_action');
-const utility=require("../utilities/utility");
 const checkout_information_action=require("../pages/checkout_information/checkout_information_action");
-var firstname='Reigen'
-var lastname='Ishigami' 
-var zip_or_postal_code='1216'
+var firstname='Taspia'
+var lastname='Roshid' 
+var zip_or_postal_code='1000'
 var username='standard_user';
 var password='secret_sauce';
 
@@ -14,16 +13,20 @@ let each_item_total_price;
 
 describe("Standard User", ()=>{
 
-    it("Try login with standard_user and verify the error message", async()=>{
+    it("Try login with standard_user ", async()=>{
+        await browser.url("/");
         await standard_userAction.clickOnUserInputField(username);
         await standard_userAction.clickOnPasswordInputField(password);
         await standard_userAction.clickOnLoginButton();
-        await standard_userAction.clickOnhamburgerButton();
-        await standard_userAction.clickOnresetAppState();
     });
 
     it("Click On Hamburger Menu and Reset App State", async()=>{
+        await standard_userAction.clickOnhamburgerButton();
+        await standard_userAction.clickOnresetAppState();
         await standard_userAction.clickOnCrossButton();
+    });
+    
+    it("Add any three items to the cart", async()=>{
         await standard_userAction.addToCart();
         select_product=await standard_userAction.productNames();
         await standard_userAction.clickOnShoppingCart();
